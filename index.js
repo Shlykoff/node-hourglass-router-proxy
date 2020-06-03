@@ -27,7 +27,7 @@ https.createServer( options, (req, res) => {
 http.createServer( (req, res) => {
 //////////////////////////// HSTS redirect from HTTP to HTTPS ///////////////////////
     res.statusCode = 301;
-    res.setHeader('Location', 'https://' + req.headers.host.split(':')[0] + req.url);
+    res.setHeader('Location', 'https://' + req.headers.host + req.url);
     res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
     return res.end();
 }).listen(process.env.PORT_HTTPS);
